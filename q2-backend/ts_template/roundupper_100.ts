@@ -57,7 +57,7 @@ app.get("/lassoable", (req, res) => {
           if (distance(location, animal.location) <= length) {
             space_animals.push({
               type: animal.metadata.type,
-              location: location,
+              location: animal.location,
             });
           }
         }
