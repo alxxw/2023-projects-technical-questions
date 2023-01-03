@@ -34,10 +34,18 @@ app.post("/entity", (req, res) => {
         name: entity.metadata.name,
         lassoLength: entity.metadata.lassoSize,
       } as spaceCowboy;
-      pushing = { type: "space_cowboy", metadata: cowboy, location: location };
+      pushing = {
+        type: "space_cowboy",
+        metadata: cowboy,
+        location: location,
+      } as spaceEntity;
     } else {
       const animal = { type: entity.metadata.type } as spaceAnimal;
-      pushing = { type: "space_animal", metadata: animal, location: location };
+      pushing = {
+        type: "space_animal",
+        metadata: animal,
+        location: location,
+      } as spaceEntity;
     }
     spaceDatabase.push(pushing);
   }
