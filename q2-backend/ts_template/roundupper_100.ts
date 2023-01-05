@@ -32,7 +32,7 @@ app.post("/entity", (req, res) => {
     if (entity.type == "space_cowboy") {
       const cowboy = {
         name: entity.metadata.name,
-        lassoLength: entity.metadata.lassoSize,
+        lassoLength: entity.metadata.lassoLength,
       } as spaceCowboy;
       pushing = {
         type: "space_cowboy",
