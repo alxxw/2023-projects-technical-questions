@@ -50,7 +50,7 @@ export default function Table() {
       },
       {
         alert: "Done!",
-        status: "<YOUR NAME>",
+        status: "alxxw",
         updates: [],
       },
     ],
