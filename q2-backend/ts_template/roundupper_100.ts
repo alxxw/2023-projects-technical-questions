@@ -17,6 +17,7 @@ type spaceEntity =
 // === ExpressJS setup + Server setup ===
 const spaceDatabase = [] as spaceEntity[];
 const app = express();
+app.use(express.json());
 
 // Express will not read body by default without this
 app.use(express.json());
