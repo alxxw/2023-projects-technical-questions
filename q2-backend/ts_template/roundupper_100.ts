@@ -17,14 +17,14 @@ type spaceEntity =
 // === ExpressJS setup + Server setup ===
 const spaceDatabase = [] as spaceEntity[];
 const app = express();
-app.use(express.json());
 
 // Express will not read body by default without this
 app.use(express.json());
 
 // the POST /entity endpoint adds an entity to your global space database
 app.post("/entity", (req, res) => {
-  for (let entity of req.body.entities) {
+  const { entities } = req.body;
+  for (let entity of entities) {
     var pushing = {} as spaceEntity;
     const location = {
       x: entity.location.x,
@@ -50,7 +50,8 @@ app.post("/entity", (req, res) => {
     }
     spaceDatabase.push(pushing);
   }
-  res.end();
+  res.json(spaceDatabase);
+  res.json({ message: "Entities created" });
 });
 
 // lasooable returns all the space animals a space cowboy can lasso given their name
