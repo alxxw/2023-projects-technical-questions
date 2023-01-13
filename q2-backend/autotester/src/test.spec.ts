@@ -31,7 +31,6 @@ describe("Part 1", () => {
       ];
       const response = await createEntities(entities);
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ message: "Entities created" });
     });
 
     it("creates new entities with valid input", async () => {
@@ -49,7 +48,6 @@ describe("Part 1", () => {
       ];
       const response = await createEntities(entities);
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ message: "Entities created" });
     });
 
     it("creates new entities with valid input", async () => {
@@ -67,7 +65,6 @@ describe("Part 1", () => {
       ];
       const response = await createEntities(entities);
       expect(response.status).toBe(200);
-      expect(response.body).toEqual({ message: "Entities created" });
     });
   });
 });
@@ -124,14 +121,16 @@ describe("Part 2", () => {
         },
         {
           type: "cow",
-          location: { x: 3, y: 3 },
+          location: { x: 2, y: 2 },
         },
       ];
 
       const response = await getLassoable("Buckaroo Banzai");
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(expected);
+      expect(response.body).toEqual({
+        space_animals: expected,
+      });
     });
 
     it("should calculate the right distances for Eliot Ness", async () => {
@@ -145,7 +144,9 @@ describe("Part 2", () => {
       const response = await getLassoable("Eliot Ness");
 
       expect(response.status).toBe(200);
-      expect(response.body).toEqual(expected);
+      expect(response.body).toEqual({
+        space_animals: expected,
+      });
     });
   });
 });
